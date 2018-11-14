@@ -21,7 +21,7 @@ def choose_symbol():
 def draw_board(board):
     '''
     takes indexes 1 - 9 of a list
-    prints the values to the screen with the gameboard drawn around them
+    prints the values to the screen with the game board drawn around them
     '''
     print(f'{board[7]}|{board[8]}|{board[9]}')
     print(f'-|-|-')
@@ -54,7 +54,10 @@ def random_player():
     return turn
 
 def win_check(board, symbol):
-    
+    '''
+    takes a list, and a players symbol
+    then checks for a winning combination
+    '''
     return ((board[7] == symbol and board[8] == symbol and board[9] == symbol) or # across the top
     (board[4] == symbol and board[5] == symbol and board[6] == symbol) or # across the middle
     (board[1] == symbol and board[2] == symbol and board[3] == symbol) or # across the bottom
@@ -65,17 +68,16 @@ def win_check(board, symbol):
     (board[9] == symbol and board[5] == symbol and board[1] == symbol)) # diagonal
 
 def check_board_full(board):
-
     for position in range(1,10):
         if board[position] == ' ':
             return False
     return True
 
 def play_again():
-    play_again = ''
-    while play_again != 'y' and play_again != 'n':
-        play_again = input('Would you like to play again? (y/n): ')
-    if play_again == 'y':
+    replay = ''
+    while replay != 'y' and replay != 'n':
+        replay = input('Would you like to play again? (y/n): ')
+    if replay == 'y':
         return True
     else:
         return False
