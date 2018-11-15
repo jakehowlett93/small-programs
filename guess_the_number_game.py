@@ -1,10 +1,15 @@
 import random
 
 def ask_for_int():
+    '''
+    prompts user for input
+    catches ValueError and reminds user to input an integer
+    returns an integer
+    '''
     while True:
         try:
             guess = int(input('Guess the number: '))
-        except:
+        except ValueError:
             print('The input needs to be an integer')
         else:
             return guess
@@ -34,6 +39,6 @@ while True:
     if play_again == 'n':
         break
     else:
-        pass
+        continue
     
 
