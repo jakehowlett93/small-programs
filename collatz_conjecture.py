@@ -1,31 +1,35 @@
 while True:
-    
-    starting_number = input("Enter a number: ")
-    
-    while int(starting_number) < 1:
+
+    chosen_number = 0
         
-        starting_number = input("Please enter a number greater than 1: ")
-        
-    n = int(starting_number)
+    while chosen_number < 1:
+
+        try:
+            chosen_number = int(input("Please enter a number greater than 1: "))
+        except ValueError:
+            print('The number must be an integer!')
+
     counter = 0
-    
-    while n != 1:
-        
+
+    while chosen_number != 1:
+
         counter += 1
-        if n % 2 == 0:
-            n = n / 2
+        if chosen_number % 2 == 0:
+            chosen_number = chosen_number / 2
+            print(int(chosen_number))
         else:
-            n = (n * 3) + 1
-            
-    print(counter)
-    
-    go_again = input("would you like to go again? (y/n)")
-    
+            chosen_number = (chosen_number * 3) + 1
+            print(int(chosen_number))
+    print(f'That took {counter} turns!')
+
+    go_again = ''
+
     while go_again != "y" and go_again != "n":
-        
-        go_again = input("Try another number? (y/n)")
-        
+
+        go_again = input("would you like to go again? (y/n) ")
+
     if go_again == "y":
         continue
     else:
+        print('Goodbye!')
         break  
