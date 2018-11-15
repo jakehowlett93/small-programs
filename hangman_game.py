@@ -5,9 +5,11 @@ word_list = ['heineken', 'mouse', 'popcorn']
 play_game = True
 
 def guess_letter():
-
-    # verifies that user input is a letter and that it hasnt been input before
-
+    '''
+    verifies that user input is a letter and that it hasnt been input before
+    returns a string
+    '''
+    
     while True:
         guess = input('Guess a letter: ')
         if guess in already_guessed:
