@@ -10,14 +10,9 @@ height = list(volacano_data["ELEV"])
 
 
 #set map default location
-map = folium.Map(location=[51.699187, -0.031407], zoom_start = 12)
+map = folium.Map(location=[51., -0.03], zoom_start = 10)
 
-#adds a marker on the map to feature group
-feature_group = folium.FeatureGroup(name = "My Map")
-feature_group.add_child(folium.Marker(
-    location = [51.699187, -0.031407], 
-    popup = "My local area", 
-    icon = folium.Icon(color = 'blue')))
+feature_group = folium.FeatureGroup(name = "volcanoe_map")
 
 #adds markers on the map for volcanoes to feature group
 for lon, lat, name, height in zip(latitude, longitude, name, height):
@@ -30,7 +25,7 @@ for lon, lat, name, height in zip(latitude, longitude, name, height):
     else:
         volcano_colour = 'blue'
     feature_group.add_child(folium.CircleMarker(location = [lon, lat], radius = 6, popup = name, 
-    fill_color = volcano_colour, fill_opacity = 0.7))
+    fill_color = volcano_colour, color = 'grey', fill_opacity = 0.7))
 
 
 
